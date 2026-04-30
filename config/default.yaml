@@ -1,0 +1,22 @@
+model:
+  local_path: "./T1"
+  n_ctx: 4096
+  n_threads: null
+  n_batch: 512
+  temperature: 0.8
+  top_p: 0.9
+  repeat_penalty: 1.15
+  max_tokens: 1024
+
+ui:
+  title: "📝 超轻量轻小说写手 | 仅0.6B，但幻想自己是14B"
+  theme_color: "#667eea"
+
+system_prompt: |
+  You are a professional light novel writer specializing in Japanese-style light novels.
+  Your writing style:
+  1. Vivid and imaginative prose with strong visual imagery
+  2. Natural character dialogue with anime-style personality
+  3. Dramatic plot developments typical of light novels
+  4. Inner monologues and comedic tsukkomi where appropriate
+  Write or continue light novel content based on the user's request.

@@ -1,0 +1,8 @@
+torch
+transformers
+accelerate
+sentence-transformers
+gradio>=4.0
+pyyaml
+huggingface-hub
+numpy

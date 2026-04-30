@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>超轻量轻小说写手 - 仅0.6B写出14B效果</title>
+<link href="./bundle.js" rel="modulepreload">
+<link href="./bundle.css" rel="stylesheet">
+<style>
+:root {
+  --novelist-primary: #667eea;
+  --novelist-primary-dark: #764ba2;
+  --novelist-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+.app-sidebar,
+[role="navigation"],
+aside[class*="sidebar"] {
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%) !important;
+}
+.app-sidebar *,
+[role="navigation"] * {
+  color: #fff !important;
+}
+.app-main,
+main[class*="chat"],
+[class*="chat-container"] {
+  background: var(--novelist-bg) !important;
+}
+.novelist-banner {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 6px 12px;
+  font-size: 13px;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 99999;
+  font-family: "Segoe UI", sans-serif;
+}
+.novelist-banner b { font-weight: 700; }
+</style>
+</head>
+<body data-sveltekit-preload-data="hover">
+<div class="novelist-banner" id="novelist-banner" style="display:none;">
+  <b>📝 超轻量轻小说写手</b> · 仅0.6B，但幻想自己是14B · 氛围拉满，逻辑随缘
+</div>
+<div style="display: contents">
+<script>
+{
+  __sveltekit__ = { base: new URL(".", location).pathname.slice(0, -1) };
+  const element = document.currentScript.parentElement;
+  import("./bundle.js").then((app) => { app.start(element); });
+}
+</script>
+</div>
+<script>
+(function() {
+  document.title = "超轻量轻小说写手 - 仅0.6B写出14B效果";
+  const banner = document.getElementById("novelist-banner");
+  if (banner) banner.style.display = "block";
+  const obs = new MutationObserver(() => {
+    if (document.title !== "超轻量轻小说写手 - 仅0.6B写出14B效果") {
+      document.title = "超轻量轻小说写手 - 仅0.6B写出14B效果";
+    }
+  });
+  const t = document.querySelector("title");
+  if (t) obs.observe(t, { childList: true });
+})();
+</script>
+</body>
+</html>
