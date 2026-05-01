@@ -46,12 +46,12 @@ python main.py
 | 项目 | 最低配置 | 推荐配置 |
 |------|---------|---------|
 | 操作系统 | Windows 10/11 | Windows 11 |
-| GPU | 无（CPU 回退，~40 tok/s） | NVIDIA RTX 20 系列及以上 |
+| GPU | 无（CPU 回退，20~40 tok/s） | NVIDIA RTX 20 系列及以上 |
 | 显存 | — | 4GB+ |
 | 内存 | 8GB | 16GB |
 | 磁盘空间 | 2GB | 2GB+ |
 
-> 无 NVIDIA 显卡也能运行，llama.cpp 会自动回退到 CPU。速度约 40 tok/s（9800X3D 参考值）。
+> 无 NVIDIA 显卡也能运行，llama.cpp 会自动回退到 CPU。速度约 20-40 tok/s（近年来游戏常用CPU 参考值）。
 
 ## 模型信息
 
