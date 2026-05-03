@@ -23,7 +23,7 @@ if not exist %LLAMA_DIR%\llama-server.exe (
 )
 
 echo [1/3] 启动 llama-server (GPU加速)...
-start /b "" %LLAMA_DIR%\llama-server.exe -m %MODEL% --host 127.0.0.1 --port 8080 -ngl 99 -c 4096 --jinja --path webui --webui-config-file webui\webui-config.json > llama-server.log 2>&1
+start /b "" %LLAMA_DIR%\llama-server.exe -m %MODEL% --host 127.0.0.1 --port 8080 -ngl 99 -c 4096 --jinja --path webui --webui-config-file webui\webui-config.json --temp 0.6 --top-p 0.95 --top-k 20 > llama-server.log 2>&1
 
 echo [2/3] 等待模型加载...
 :wait_loop

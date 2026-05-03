@@ -27,6 +27,6 @@ if not exist %LLAMA_DIR%\llama-server.exe (
 echo 正在启动 llama-server，首次加载模型需要几秒...
 start "" http://127.0.0.1:8080
 
-%LLAMA_DIR%\llama-server.exe -m %MODEL% --host 127.0.0.1 --port 8080 -ngl 99 -c 4096 --jinja --path webui --webui-config-file webui\webui-config.json
+%LLAMA_DIR%\llama-server.exe -m %MODEL% --host 127.0.0.1 --port 8080 -ngl 99 -c 4096 --jinja --path webui --webui-config-file webui\webui-config.json --temp 0.6 --top-p 0.95 --top-k 20
 
 pause
