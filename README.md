@@ -18,7 +18,7 @@
 - **超轻量**：模型仅 0.6B 参数，完整包约 2GB，普通笔记本也能跑
 - **GPU 加速**：内置 NVIDIA CUDA 12 运行时，RTX 50 系列实测 **~264 tok/s**
 - **自定义 WebUI**：紫蓝渐变主题 + 顶部横幅，基于 llama-server 原版魔改
-- **内置人设**：轻小说写手 system prompt，专注设定/世界观/场景描写
+- **参数级风格**：LoRA 微调已将轻小说风格固化到模型参数中，无需 system prompt 即可输出日式文笔
 - **优雅 reasoning 框**：Qwen3 的 `<think>` 思考过程以可折叠灰色区块展示
 - **零依赖**：无需安装 Python / PyTorch / CUDA Toolkit / Transformers
 
@@ -118,8 +118,8 @@ python main.py
 **Q: 只有 thinking 内容，没有正文？**
 > 小模型容易陷入 reasoning 模式。WebUI 设置中已关闭 reasoning parsing，thinking 内容会作为普通文本显示。也可以尝试调高 temperature 或换更具体的提示词。
 
-**Q: 怎么调整系统提示（System Prompt）？**
-> 点击界面左下角 ⚙️ Settings → System Message，修改后新对话生效。
+**Q: 需要注入 system prompt 吗？**
+> **不建议**。模型在「裸奔」条件下（零 system prompt）输出效果最好。额外的角色预设会干扰微调固化的风格分布。如确有特殊需求，可在 WebUI Settings → System Message 中修改，但建议保持为空。
 
 **Q: 支持 macOS / Linux 吗？**
 > 当前 Release 仅提供 Windows 二进制。macOS/Linux 用户可从源码运行，需自行编译 llama-server 或安装对应平台的 llama.cpp 二进制。
@@ -472,6 +472,10 @@ Qwen3-0.6B-Instruct 经过专门的对齐，知道"角色扮演"该怎么写；Q
 ---
 
 ### 评测方法说明
+
+> ⚠️ **重要：所有评测均为「裸奔」条件**——零 system prompt、零角色预设、零提示词工程。题目直接丢给模型，输出什么样就是什么样。0.6B 的轻小说风格不是 prompt 堆出来的，是 LoRA 微调固化到参数里的本能反应。
+>
+> **建议：本地使用时也不要额外注入 system prompt**，让模型凭参数本能输出效果最佳。
 
 为什么不用 BLEU/Rouge？创意写作的本质是**多样性**，逐字匹配标准答案的指标会惩罚合理的创意发散。Pairwise 评测让大模型裁判从「人类审美」角度判断哪份回答更好，更贴合实际使用场景。
 
