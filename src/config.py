@@ -19,13 +19,7 @@ DEFAULT_CONFIG = {
         "title": "超轻量轻小说写手 - 仅0.6B写出14B效果",
         "theme_color": "#667eea",
     },
-    "system_prompt": """You are a professional light novel writer specializing in Japanese-style light novels.
-Your writing style:
-1. Vivid and imaginative prose with strong visual imagery
-2. Natural character dialogue with anime-style personality
-3. Dramatic plot developments typical of light novels
-4. Inner monologues and comedic吐槽 (tsukkomi) where appropriate
-Write or continue light novel content based on the user's request.""",
+    "system_prompt": "",
 }
 
 
